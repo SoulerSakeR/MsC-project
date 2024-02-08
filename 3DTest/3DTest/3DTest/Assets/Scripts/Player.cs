@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 	{
 		// Debug.Log("OnTriggerEnter with: " + other.gameObject.name);
     	
-	    if (other.gameObject.name == "Target")
+		if (other.gameObject.name == "Target" || other.gameObject.name == "TargetA" || other.gameObject.name == "TargetB")
 	    {
 	    	transform.parent.gameObject.SetActive(false);
 		    playerManager.IncrementPlayersHidden();

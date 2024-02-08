@@ -45,12 +45,12 @@ public class PrefabSpawner : MonoBehaviour
 				Vector3 playerPosition = new Vector3((j - playerColCount / 2) * playerSpacing, 0, (i - playerRowCount / 2) * playerSpacing);
 				GameObject newPlayer = Instantiate(player, playerPosition + playerOffset, Quaternion.identity) as GameObject;
 				AIDestinationSetter destSetterScript = newPlayer.GetComponent<AIDestinationSetter>();
-				destSetterScript.target = target;
+                destSetterScript.target = target;			
 			}
 		}
 		
 		playerManager.SetTotalPlayers(playerRowCount * playerColCount);
-		AstarPath.active.Scan();
 		playerManager.StartPathFinding();
+		if (AstarPath.active) AstarPath.active.Scan();
 	}
 }
